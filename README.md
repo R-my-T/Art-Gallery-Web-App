@@ -10,6 +10,8 @@ We can connect viewers who wish to buy artworks to the respective artists direct
  - [Ramya](https://github.com/R-my-T)
  - [Swaathy Kumar](https://github.com/tinycoder2)
  - [Devika Rajasekar](https://github.com/devika1402)
+
+Note: The outlook of the website can be viewed in the Screenshots.pdf 
   
   
   
