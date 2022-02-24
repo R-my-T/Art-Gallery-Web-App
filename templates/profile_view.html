@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block body %}
+<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+<!-- #C5E3F2 -->
+<style>
+  img {
+    border-radius: 50%;
+  }
+
+  .content {
+    max-width: 500px;
+    margin: auto;
+    background-color: #f1bbc4;
+    background-color: #ffe1e6e7; 
+    padding: 10px;
+    margin-top:10%;
+    text-align:center;
+  }
+  
+</style>
+<body style="background-color:#C5E3F2;">
+
+<center>
+  <div class='content'><br><h3>My Profile</h3><br>
+  <img src="{{user.0.6}}" alt="Profile picture" style="width:200px"><br><br>
+
+<h3>{{user.0.1}}</h3>
+<font size=3>
+  <h6>{{user.0.4}}<br><br></h6>
+  <p><b>Email: </b>{{user.0.3}} <br>
+    <b>Love received: </b>{{user.0.7}} <br>
+      <b>Created on: </b>{{user.0.5}} <br>
+        <b>Modified on: </b>{{user.0.8}} <br><br>
+          <b>Password:</b><input type="password" value="{{user.0.2}}" id="myInput" disabled><input type="checkbox" onclick="showPwd()"> <font size=2>Show Password</font> 
+  </p>
+</font>
+</div>
+<br> 
+<a href="{{ url_for ('profileupdate', id=user.0.0) }}" class="btn btn-outline-primary" role="button">Update profile</a>
+<a href="#" class="btn btn-outline-danger" role="button" onclick="confirmDel()">Delete account</a>
+</center>
+
+
+<script>
+function showPwd() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function confirmDel() {
+  x=confirm("Are you sure you want to delete account?");
+  if (x == true) {
+    location.href = "{{ url_for ('profiledelete', id=user.0.0) }}";
+  } else {
+    location.href = "{{ url_for('profileview', id=pk) }}";
+  }
+}
+</script>
+</body>
+{% endblock %}

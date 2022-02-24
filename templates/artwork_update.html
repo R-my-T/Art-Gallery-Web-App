@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block body %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    background-color: #f1bbc4;
+    background-color: #ffe1e6e7; 
+  }
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body style="background-color:#b6d7e7;"></br></br></br>
+
+<div class="content">
+<form action="#" method="POST" enctype="multipart/form-data">
+  <center><h3>Update artwork details: </h3></center>
+    Title:<br>
+    <input type="text" name="title" value="{{art_data.0.1}}" /></br>
+    <br>
+
+    <input type="hidden" name="artist" value="{{art_data.0.2}}">
+
+    <label for="genre">Choose a genre for your artwork:</label>
+    <select name="genre">
+      {% for g in genrenameslist %}
+      <option value="{{g.0}}">{{g.0}}</option>
+      {% endfor %}
+    </select>
+    
+    <br><br>
+    Year:
+    <input type="text" name="year" value="{{art_data.0.4}}" /></br>
+    <br><br>
+    Current image: 
+    <input type="hidden" name="image_file" value="{{art_data.0.5}}">
+    <img src="{{art_data.0.5}}" name="image" alt="image" width="320" height="240">
+
+    <br><br>
+    Update image: 
+    <input type="file" name="file" /><br>
+    <br>
+    <center><input type="submit" value="Submit" /><br></center>
+</form>
+</div>
+</body>
+</html>
+{% endblock %}

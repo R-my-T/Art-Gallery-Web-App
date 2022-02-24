@@ -1,0 +1,65 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+  <style>
+  div.polaroid {
+    width: 80%;
+    background-color: #f1bbc4;
+    background-color: #ffe1e6e7; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    text-align: center;
+    margin:0 auto;
+  }
+  
+  div.container {
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .bg-text {
+
+    color: rgb(31, 46, 97);
+    font-weight: bold;
+    position: relative;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Aclonica';
+    font-size: 22px;
+  }
+</style>
+
+<body style="background-color:#b6d7e7;">
+  <div class='bg-text'>
+  <center><h1>Welcome to the art display</h1></center>
+
+  </div>
+</br></br></br></br></br></br>
+    {% for item in art %}
+    <br>
+    <div class="row">
+      <div class="column">
+          <div class="polaroid">
+            <br><br><img src="{{item.5}}" alt="Artwork" style="width:600px">
+          <div class="container">
+              <h2>{{item.1}}</h2> <!-- Title -->
+              <p class="title"><b>Created by: </b>{{item.2}}</p>
+              <p><b>Genre: </b>{{item.3}}</p>
+              <p><b>Created in the Year: </b>{{item.4}}</p>
+              <p><b>No. of people who have liked this art: </b>{{item.6}}</p>
+              <a href="{{ url_for ('like', pk=item.0) }}">Like</a>
+          </div>
+          </div>
+          <br><br>
+      </div>
+      </div>
+    
+    {% endfor %}
+
+</body>
+</html>    
